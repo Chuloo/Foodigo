@@ -1,0 +1,14 @@
+.list{
+    margin-top:40px;
+}
+.close-order{
+    display: none;
+}
+.closeicon{
+    cursor: pointer;
+    border: 1px solid black;
+    /* margin-left: 60px; */
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(240, 236, 236);
+}

@@ -1,0 +1,29 @@
+{
+  "name": "realtime-food-ordering-app",
+  "version": "1.0.0",
+  "description": "Real-time food ordering app via USSD using AT, Pusher, and Vue",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js",
+    "build": "node server.js"
+  },
+  "keywords": [
+    "food",
+    "pusher",
+    "app",
+    "realtime",
+    "vue"
+  ],
+  "author": "Chuloo",
+  "license": "MIT",
+  "dependencies": {
+    "africastalking": "^0.1.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "pusher": "^1.5.1",
+    "webtask": "^1.0.0",
+    "webtask-tools": "^3.2.0"
+  }
+}
