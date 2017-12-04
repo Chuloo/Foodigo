@@ -35,12 +35,13 @@
                             <td>08140146714</td>
                             <td>Nil</td>
                         </tr>
-                        <tr v-for="order in orders" :class="classOrder">
+                        <tr v-for="order in orders" v-if="order.open"> <!-- :class="classOrder"> -->
                             <td>{{order.name}}</td>
                             <td>{{order.description}}</td>
                             <td>{{order.address}}</td>
                             <td>{{order.telephone}}</td>
-                            <td><span @click="close" class="closeicon"><b>Close Order</b></span></td>
+                            <td><span @click="close(order)" :class="{completeOrder:!order.open}" class="closeicon"><b>Close Order</b></span></td>
+                        <!-- order.open = !order.open -->
                         </tr>
                     </tbody>
                 </table>    
@@ -48,9 +49,10 @@
         </main>
     </div>
 <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>    
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script> 
     <script src="index.js"></script>
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script> -->
+    <!-- <script src="https://js.pusher.com/4.1/pusher.min.js"></script> -->
 </body>
 </html>

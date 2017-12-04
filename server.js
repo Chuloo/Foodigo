@@ -7,8 +7,6 @@ var bodyParser = require('body-parser')
 var Webtask = require('webtask-tools')
 
 //configure modules
-var sms = africastalking.SMS
-var voice = africastalking.VOICE
 var express = require('express')
 var app = express()
 var port = 3000
@@ -27,20 +25,23 @@ app.use(express.static(__dirname + '/'))
 
 //configure AT
 var webURL = 'http://tummytime.com/menu'
-var welcomeMsg = `CON Hello and welcome to TummyTime. 
+var welcomeMsg = `CON Hello and welcome to TummyTime.
 Have your food delivered to you fast and hot!
 Please find our menu ${webURL}
 Enter your name to continue`
+
 var orderDetails = {
     name: "",
     description: "",
     address: "",
-    telephone: ""
+    telephone: "",
+    open: true
 }
+var lastData = "";
 
 app.post('/order', function(req, res){
     console.log(req.body);
-    var message = '' 
+    var message = 'Hello' 
 
     var sessionId = req.body.sessionId
     var serviceCode = req.body.serviceCode
@@ -48,35 +49,45 @@ app.post('/order', function(req, res){
     var text = req.body.text
     var textValue = text.split('*').length
 
-    console.log(sessionID, serviceCode, phoneNumber, text)
+    console.log(sessionId, serviceCode, phoneNumber, text)
+    message = "hello world"
 
     if(text === ''){
         message = welcomeMsg
-    }else if(textValue){
-        message = "What do you want to eat?"
-        name = text;
-    }else if(textValue){
-        message = "Where do we deliver it?"
-        description = text;
-    }else if(textValue){
-        message = "what's your telephone number?"
-        address = text;
-    }else if(textValue){
-        message = `Would you like to place this order?
+    }else if(textValue === 1){
+        message = "CON What do you want to eat?"
+        orderDetails.name = text;
+    }else if(textValue === 2){
+        message = "CON Where do we deliver it?"
+        orderDetails.description = text.split('*')[1];
+    }else if(textValue === 3){
+        message = "CON What's your telephone number?"
+        orderDetails.address = text.split('*')[2];
+    }else if(textValue === 4){
+        message = `CON Would you like to place this order?
         1. Yes
         2. No`
-        telephone = text;
-    }else if(text === '1'){
+        lastData = text.split('*')[3];
+    }else{
         message = `END Thanks for your order
         Enjoy your meal in advance`
-    }else{
-        message = `END We are sorry you are cancelling your order
-        You can always restart whenever you choose
-        Call us on 08140146714 for any assistance`
+        orderDetails.telephone = lastData   
     }
+    
+    res.contentType('text/plain');
+    res.send(message, 200);
 
-    //configure pusher
-    pusher.trigger('orders', 'customerOrder', orderDetails) 
+    console.log(orderDetails)
+    if(orderDetails.name != "" && orderDetails.address != '' && orderDetails.description != '' && orderDetails.telephone != ''){
+        pusher.trigger('orders', 'customerOrder', orderDetails)
+    }
+    if(orderDetails.telephone != ''){
+        //reset data
+    orderDetails.name= ""
+    orderDetails.description= ""
+    orderDetails.address= ""
+    orderDetails.telephone= ""
+    }
 
 })
 //listen on port 
