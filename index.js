@@ -2,9 +2,13 @@
 new Vue({
     el: "#root",
     data:{
-        title: "TummyTime Restaurant Dashboard",
+        title: "Foodigo Restaurant Dashboard",
         orders:[
-            {name:"Chinelo", description:"Rice and Chicken", address:"Lekki", telephone:"08082862000", open:true}
+            {name:"Chris", description:"Rice and Ofe-Akwu", address:"Lekki", telephone:"08082092000", open:true},
+            {name:"William", description:"Rice and Chicken", address:"Amuwo", telephone:"08082818700", open:true},
+            {name:"Alex", description:"Yam and Egg Sauce", address:"Satellite Town", telephone:"08083872000", open:true},
+            {name:"Ralph", description:"Rice and Salad", address:"Nsukka", telephone:"08082983010", open:true},
+            {name:"BLAQLSG", description:"Cake and Sprite", address:"Ije-Ododo", telephone:"08082869820", open:true}
         ],
         completedOrders:[],
         classOrder: ""

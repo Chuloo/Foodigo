@@ -4,7 +4,7 @@ var credentials = require('./cred')
 var africastalking = require('africastalking')(credentials.AT)
 var cors = require('cors')
 var bodyParser = require('body-parser')
-var Webtask = require('webtask-tools')
+// var Webtask = require('webtask-tools')
 
 //configure modules
 var express = require('express')
@@ -24,8 +24,8 @@ app.get('/', function(req, res){
 app.use(express.static(__dirname + '/'))
 
 //configure AT
-var webURL = 'http://tummytime.com/menu'
-var welcomeMsg = `CON Hello and welcome to TummyTime.
+var webURL = 'http://foodigo.com/menu'
+var welcomeMsg = `CON Hello and welcome to Foodigo.
 Have your food delivered to you fast and hot!
 Please find our menu ${webURL}
 Enter your name to continue`
@@ -93,6 +93,6 @@ app.post('/order', function(req, res){
 //listen on port 
 app.listen(port, function(err, res){
     if(err) throw err
-    console.log("Listening on port " + port)
+    console.log("Booming on the legendary port " + port)
 })
 

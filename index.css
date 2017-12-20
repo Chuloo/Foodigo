@@ -1,14 +1,43 @@
-.list{
-    margin-top:40px;
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.container-fluid{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+header{
+    height: 160px;
+    margin: 0px;
+    background-color: rgb(240, 75, 75);
+    padding: 40px;
+}
+header h1{
+    margin: 0px;
+}
+header h4{
+    color: rgb(92, 91, 91);
 }
 .completeOrder{
     display: none;
 }
 .closeicon{
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 20px;
     cursor: pointer;
-    border: 1px solid black;
-    /* margin-left: 60px; */
-    padding: 5px;
-    border-radius: 5px;
-    background-color: rgb(240, 236, 236);
+}
+.closeicon:hover{
+    opacity: 0.5;
+}
+.order-card{
+    background-color: antiquewhite;
+    margin: 50px;
+    border-radius: 10px;
+    width: 20%;
+    margin-right:0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
 }

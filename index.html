@@ -10,41 +10,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
 </head>
 <body>
-    <div class="container" id="root">
+    <div class="container-fluid" id="root">
         <header>
             <h1 class="text-center">{{title}}</h1>
-            <h4 class="text-center text-info">Realtime food ordering app via USSD</h4>
+            <h4 class="text-center">Realtime food ordering app via USSD</h4>
         </header>
         <main>
-            <div class="list">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Client Name</th>
-                            <th>Order Description</th>
-                            <th>Address for Delivery</th>
-                            <th>Telephone Number</th>
-                            <th>Close Order</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>William</td>
-                            <td>Pounded yam with Egusi</td>
-                            <td>Dayo Akinyele Street lagoon estate</td>
-                            <td>08140146714</td>
-                            <td>Nil</td>
-                        </tr>
-                        <tr v-for="order in orders" v-if="order.open"> <!-- :class="classOrder"> -->
-                            <td>{{order.name}}</td>
-                            <td>{{order.description}}</td>
-                            <td>{{order.address}}</td>
-                            <td>{{order.telephone}}</td>
-                            <td><span @click="close(order)" :class="{completeOrder:!order.open}" class="closeicon"><b>Close Order</b></span></td>
-                        <!-- order.open = !order.open -->
-                        </tr>
-                    </tbody>
-                </table>    
+            <div class="row">
+                <div v-for="order in orders" v-if="order.open" class="col-md-4 order-card">
+                    <h3 title="Customer Name">{{order.name}}</h3>
+                    <span class="closeicon" @click="close(order)" title="Close Order">X</span>
+                    <p title="Order Description">{{order.description}}</p>
+                    <p title="Customer Address">{{order.address}}</p>
+                    <p title="Customer Telephone">{{order.telephone}}</p>
+                </div>
             </div>
         </main>
     </div>
@@ -56,3 +35,39 @@
     <!-- <script src="https://js.pusher.com/4.1/pusher.min.js"></script> -->
 </body>
 </html>
+
+
+
+
+<!-- Unused code -->
+
+<!-- <div class="list">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Client Name</th>
+                    <th>Order Description</th>
+                    <th>Address for Delivery</th>
+                    <th>Telephone Number</th>
+                    <th>Close Order</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>William</td>
+                    <td>Pounded yam with Egusi</td>
+                    <td>Dayo Akinyele Street lagoon estate</td>
+                    <td>08140146714</td>
+                    <td>Nil</td>
+                </tr>
+                <tr v-for="order in orders" v-if="order.open"> :class="classOrder">
+                    <td>{{order.name}}</td>
+                    <td>{{order.description}}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{order.telephone}}</td>
+                    <td><span @click="close(order)" :class="{completeOrder:!order.open}" class="closeicon"><b>Close Order</b></span></td>
+                order.open = !order.open
+                </tr>
+            </tbody>
+        </table> 
+    </div> -->
