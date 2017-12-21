@@ -4,14 +4,9 @@ new Vue({
     data:{
         title: "Foodigo Restaurant Dashboard",
         orders:[
-            {name:"Chris", description:"Rice and Ofe-Akwu", address:"Lekki", telephone:"08082092000", open:true},
-            {name:"William", description:"Rice and Chicken", address:"Amuwo", telephone:"08082818700", open:true},
-            {name:"Alex", description:"Yam and Egg Sauce", address:"Satellite Town", telephone:"08083872000", open:true},
-            {name:"Ralph", description:"Rice and Salad", address:"Nsukka", telephone:"08082983010", open:true},
-            {name:"BLAQLSG", description:"Cake and Sprite", address:"Ije-Ododo", telephone:"08082869820", open:true}
-        ],
-        completedOrders:[],
-        classOrder: ""
+            {name:"Chris Nwamba", description:"Rice and Ofe-Akwu", address:"Lekki", telephone:"08082092000", open:true},
+            {name:"William Imoh", description:"Rice and Chicken", address:"Amuwo", telephone:"08082818700", open:true}
+        ]
     },
     created(){
         var pusher = new Pusher('2dd6b95d32efbc7fa4ad',{

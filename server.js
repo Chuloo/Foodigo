@@ -49,9 +49,6 @@ app.post('/order', function(req, res){
     var text = req.body.text
     var textValue = text.split('*').length
 
-    console.log(sessionId, serviceCode, phoneNumber, text)
-    message = "hello world"
-
     if(text === ''){
         message = welcomeMsg
     }else if(textValue === 1){

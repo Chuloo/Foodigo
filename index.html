@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="index.css">
     <title>Real-time food ordering app dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
 </head>
 <body>
     <div class="container-fluid" id="root">
@@ -28,46 +27,8 @@
         </main>
     </div>
 <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
     <script src="https://js.pusher.com/4.1/pusher.min.js"></script> 
     <script src="index.js"></script>
-    <!-- <script src="https://js.pusher.com/4.1/pusher.min.js"></script> -->
 </body>
 </html>
-
-
-
-
-<!-- Unused code -->
-
-<!-- <div class="list">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Client Name</th>
-                    <th>Order Description</th>
-                    <th>Address for Delivery</th>
-                    <th>Telephone Number</th>
-                    <th>Close Order</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>William</td>
-                    <td>Pounded yam with Egusi</td>
-                    <td>Dayo Akinyele Street lagoon estate</td>
-                    <td>08140146714</td>
-                    <td>Nil</td>
-                </tr>
-                <tr v-for="order in orders" v-if="order.open"> :class="classOrder">
-                    <td>{{order.name}}</td>
-                    <td>{{order.description}}</td>
-                    <td>{{order.address}}</td>
-                    <td>{{order.telephone}}</td>
-                    <td><span @click="close(order)" :class="{completeOrder:!order.open}" class="closeicon"><b>Close Order</b></span></td>
-                order.open = !order.open
-                </tr>
-            </tbody>
-        </table> 
-    </div> -->
